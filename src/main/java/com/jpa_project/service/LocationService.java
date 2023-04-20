@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import com.jpa_project.model.Location;
+import com.jpa_project.model.User;
 import com.jpa_project.repository.LocationDAORepository;
 
 import lombok.extern.slf4j.Slf4j;
@@ -23,7 +24,6 @@ public class LocationService {
 	
 	public void insertLocation(Location l) {
 		repo.save(l);
-		log.info(l.toString());
 	}
 	
 	public void createFakeLocation() {
@@ -32,6 +32,10 @@ public class LocationService {
 	
 	public List<Location> finsAllLocation() {
 		return (List<Location>) repo.findAll();
+	}
+	
+	public Location findLocationById(Long id) {
+		return repo.findById(id).get();
 	}
 	
 	public void removeLocation(Location l) {

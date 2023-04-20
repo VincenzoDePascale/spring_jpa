@@ -46,7 +46,7 @@ public class BuildingService {
 		repo.findByCity(city);
 	}
 	
-	public Optional<Building> findBuildingById(Long id) {
-		return repo.findById(id);
+	public Building findBuildingById(Long id) {
+		return repo.findById(id).get();
 	}
 }
