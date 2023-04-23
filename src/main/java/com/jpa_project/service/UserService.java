@@ -20,14 +20,14 @@ public class UserService {
 	
 	@Autowired @Qualifier("FakeUser") private ObjectProvider<User> fakeUserProvider;
 	
-	public void insertUser(User u) {
+	public User insertUser(User u) {
 		repo.save(u);
-		log.info("Utente: " + u.toString() + "salvato nel DB!");
+		return u;
 	}
 	
 	public void createFakeUser() { 
 		insertUser(fakeUserProvider.getObject());
-	}
+	}	
 	
 	public User findUserByID(Long id) {
 		return repo.findById(id).get();
@@ -37,14 +37,19 @@ public class UserService {
 		return (List<User>) repo.findAll();
 	}
 	
-	public void removeUser(User u) {
+	public User removeUser(User u) {
 		repo.delete(u);
-		log.info("Utente rimosso dal DB!!!");
+		return u;
 	}
 	
-	public void updateUser(User u) {
+	public String removeUserById(Long id) {
+		repo.deleteById(id);
+		return "User deleted";
+	}
+	
+	public User updateUser(User u) {
 		repo.save(u);
-		log.info("Utente " + u.toString() + " aggiornato sul DB!!!");
+		return u;
 	}
 		
 	public void User(String name, String lastname) {

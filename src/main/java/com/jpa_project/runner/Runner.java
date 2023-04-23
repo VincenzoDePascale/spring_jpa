@@ -69,15 +69,15 @@ public class Runner implements ApplicationRunner {
 //		l3a.setMaxOccupants(100);
 //		l3a.setType(LocationType.SALA_RIUNIONI);
 //		locationService.insertLocation(l3a);
-		
-		User u = userService.findUserByID(1l);
-		Location l = locationService.findLocationById(1l);
-		
-		Reservation r = new Reservation();
-		r.setData(LocalDate.of(2023, 5, 2));
-		r.setLocation(l);
-		r.setUser(u);
-		reservationService.insertReservation(r);
+//		
+//		User u = userService.findUserByID(1l);
+//		Location l = locationService.findLocationById(1l);
+//		
+//		Reservation r = new Reservation();
+//		r.setData(LocalDate.of(2023, 5, 2));
+//		r.setLocation(l);
+//		r.setUser(u);
+//		reservationService.insertReservation(r);
 		
 	}
 }
